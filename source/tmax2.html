@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>test @ github.com/vitrum/bxslider</title>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+<style>
+</style>
+
+</head>
+<body>
+<div class="showroom"><ul class="wroklist"><li><img src="http://www.neimanmarcus.com/category/cat000000/main4_110312.jpg"></li><li><img src="http://www.neimanmarcus.com/category/cat000000/main2_110312.jpg"></li><li><img src="http://www.neimanmarcus.com/category/cat000000/main1_110312.gif"></li><li><img src="http://www.neimanmarcus.com/category/cat000000/main3_110212.jpg"></li><li><img src="http://www.neimanmarcus.com/category/cat000000/main4_101012.jpg"></li><li><img src="http://www.neimanmarcus.com/category/cat000000/main3_101212.jpg"></li><li><img src="http://www.neimanmarcus.com/category/cat000000/main2_101512.jpg"></li></ul></div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="TweenMax.min.js"></script>
+<script type="text/javascript" src="jquery.bxSlider.js"></script>
+<script>
+
+jQuery(document).ready(function() {
+				jQuery('.wroklist').bxSlider({    
+					mode: 'horizontal',
+					pager: true,
+					auto: true,
+					autoHover: true,
+					autoStart: true,
+					spead:8000,
+					onBeforeSlide: function(currentSlide, totalSlides){
+      					//showItemNavSetup();
+      				}
+				});
+
+});
+</script>	
+</body>
+</html>
