@@ -142,14 +142,14 @@
 							isWorking = false;
 							options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
 						}})
-						//console.log('go whit TweenMax');
+						console.log('go whit TweenMax');
 					}catch(err){
 						$parent.animate({'left': '-'+getSlidePosition(slide, 'left')+'px'}, options.speed, options.easing, function(){
 							isWorking = false;
 							// perform the callback function
 							options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
 						});
-						//console.log('go with jQuery animate');
+						console.log('go with jQuery animate');
 					}
 				// vertical
 				}else if(options.mode == 'vertical'){
@@ -160,14 +160,14 @@
 							// perform the callback function
 							options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
 						}})
-						//console.log('go whit TweenMax');
+						console.log('go whit TweenMax');
 					}catch(err){
 						$parent.animate({'top': '-'+getSlidePosition(slide, 'top')+'px'}, options.speed, options.easing, function(){
 							isWorking = false;
 							// perform the callback function
 							options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
 						});	
-						//console.log('go with jQuery animate');
+						console.log('go with jQuery animate');
 					}		
 				// fade	
 				}else if(options.mode == 'fade'){
@@ -236,28 +236,60 @@
 						// get the new 'left' property for $parent
 						var parentLeft = (options.moveSlideQty * childrenOuterWidth);
 						// animate to the new 'left'
-						$parent.animate({'left': '-='+parentLeft+'px'}, options.speed, options.easing, function(){
-							isWorking = false;
-							// if its time to loop, reset the $parent
-							if(slideLoop){
-								$parent.css('left', '-'+getSlidePosition(currentSlide, 'left')+'px');
-							}
-							// perform the callback function
-							options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
-						});
+						try {
+							//TweenMax
+							TweenLite.to( $parent, animateTime , {css:{'left': '-='+parentLeft+'px'}, onComplete:function(){
+								isWorking = false;
+								// if its time to loop, reset the $parent
+								if(slideLoop){
+									$parent.css('left', '-'+getSlidePosition(currentSlide, 'left')+'px');
+								}
+								// perform the callback function
+								options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
+							}})
+							console.log('go whit TweenMax');
+						}catch(err){
+							$parent.animate({'left': '-='+parentLeft+'px'}, options.speed, options.easing, function(){
+								isWorking = false;
+								// if its time to loop, reset the $parent
+								if(slideLoop){
+									$parent.css('left', '-'+getSlidePosition(currentSlide, 'left')+'px');
+								}
+								// perform the callback function
+								options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
+							});
+							console.log('go with jQuery animate');
+						}
+						
 					}else if(options.mode == 'vertical'){
 						// get the new 'left' property for $parent
 						var parentTop = (options.moveSlideQty * childrenMaxHeight);
 						// animate to the new 'left'
-						$parent.animate({'top': '-='+parentTop+'px'}, options.speed, options.easing, function(){
-							isWorking = false;
-							// if its time to loop, reset the $parent
-							if(slideLoop){
-								$parent.css('top', '-'+getSlidePosition(currentSlide, 'top')+'px');
-							}
-							// perform the callback function
-							options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
-						});
+						try {
+							//TweenMax
+							TweenLite.to( $parent, animateTime , {css:{'top': '-='+parentTop+'px'}, onComplete:function(){
+								isWorking = false;
+								// if its time to loop, reset the $parent
+								if(slideLoop){
+									$parent.css('top', '-'+getSlidePosition(currentSlide, 'top')+'px');
+								}
+								// perform the callback function
+								options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
+							}})
+							console.log('go whit TweenMax');
+						}catch(err){
+							$parent.animate({'top': '-='+parentTop+'px'}, options.speed, options.easing, function(){
+								isWorking = false;
+								// if its time to loop, reset the $parent
+								if(slideLoop){
+									$parent.css('top', '-'+getSlidePosition(currentSlide, 'top')+'px');
+								}
+								// perform the callback function
+								options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
+							});
+							console.log('go with jQuery animate');
+						}	
+						
 					}else if(options.mode == 'fade'){
 						setChildrenFade();
 					}					
@@ -332,28 +364,60 @@
 						// get the new 'left' property for $parent
 						var parentLeft = (options.moveSlideQty * childrenOuterWidth);
 						// animate to the new 'left'
-						$parent.animate({'left': '+='+parentLeft+'px'}, options.speed, options.easing, function(){
-							isWorking = false;
-							// if its time to loop, reset the $parent
-							if(slideLoop){
-								$parent.css('left', '-'+getSlidePosition(currentSlide, 'left')+'px');
-							}
-							// perform the callback function
-							options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
-						});
+						try {
+							//TweenMax
+							TweenLite.to( $parent, animateTime , {css:{'left': '+='+parentLeft+'px'}, onComplete:function(){
+								isWorking = false;
+								// if its time to loop, reset the $parent
+								if(slideLoop){
+									$parent.css('left', '-'+getSlidePosition(currentSlide, 'left')+'px');
+								}
+								// perform the callback function
+								options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
+							}})
+							console.log('go whit TweenMax');
+						}catch(err){
+							$parent.animate({'left': '+='+parentLeft+'px'}, options.speed, options.easing, function(){
+								isWorking = false;
+								// if its time to loop, reset the $parent
+								if(slideLoop){
+									$parent.css('left', '-'+getSlidePosition(currentSlide, 'left')+'px');
+								}
+								// perform the callback function
+								options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
+							});
+							console.log('go with jQuery animate');
+						}
+						
 					}else if(options.mode == 'vertical'){
 						// get the new 'left' property for $parent
 						var parentTop = (options.moveSlideQty * childrenMaxHeight);
 						// animate to the new 'left'
-						$parent.animate({'top': '+='+parentTop+'px'}, options.speed, options.easing, function(){
-							isWorking = false;
-							// if its time to loop, reset the $parent
-							if(slideLoop){
-								$parent.css('top', '-'+getSlidePosition(currentSlide, 'top')+'px');
-							}
-							// perform the callback function
-							options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
-						});
+						try {
+							//TweenMax
+							TweenLite.to( $parent, animateTime , {css:{'top': '+='+parentTop+'px'}, onComplete:function(){
+								isWorking = false;
+								// if its time to loop, reset the $parent
+								if(slideLoop){
+									$parent.css('top', '-'+getSlidePosition(currentSlide, 'top')+'px');
+								}
+								// perform the callback function
+								options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
+							}})
+							console.log('go whit TweenMax');
+						}catch(err){
+							$parent.animate({'top': '+='+parentTop+'px'}, options.speed, options.easing, function(){
+								isWorking = false;
+								// if its time to loop, reset the $parent
+								if(slideLoop){
+									$parent.css('top', '-'+getSlidePosition(currentSlide, 'top')+'px');
+								}
+								// perform the callback function
+								options.onAfterSlide(currentSlide, $children.length, $children.eq(currentSlide));
+							});
+							console.log('go with jQuery animate');
+						}	
+						
 					}else if(options.mode == 'fade'){
 						setChildrenFade();
 					}					
@@ -929,6 +993,7 @@
 			$outerWrapper.children('.bx-window').hover(function() {
 				if(autoPlaying){
 					base.suspendShow(false);
+					console.log('suspendShow -> fales,'+ autoPlaying);
 				}
 			}, function() {
 				if(autoPlaying){
